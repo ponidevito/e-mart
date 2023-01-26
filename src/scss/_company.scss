@@ -1,0 +1,27 @@
+.section {
+  &__company {
+    background: #d2e2ee;
+    padding: 15px 0px;
+    @include sm {
+      padding: 30px 0;
+    }
+  }
+}
+.company {
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    @include sm {
+      flex-direction: column;
+    }
+  }
+}
+.comapany {
+  &__item {
+    img {
+      max-width: 100%;
+    }
+  }
+}

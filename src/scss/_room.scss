@@ -1,0 +1,205 @@
+.section {
+  &__room {
+    padding-top: 116px;
+    padding-bottom: 0px;
+    @include lg {
+      padding-top: 80px;
+    }
+    @include md {
+      padding-top: 50px;
+    }
+    @include xs {
+      padding-top: 30px;
+    }
+    &.room-last{
+      padding-bottom: 130px;
+      @include lg {
+        padding-bottom: 80px;
+      }
+      @include md {
+        padding-bottom: 50px;
+      }
+      @include xs {
+        padding-bottom: 30px;
+      }
+    }
+  }
+
+ 
+}
+.room {
+
+  &__items {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    @include md {
+      flex-wrap: wrap-reverse;
+      gap: 60px;
+    }
+    &.items-reverse {
+      flex-direction: row-reverse;
+      gap: 78px;
+      @include md {
+        gap: 60px;
+      }
+    }
+    &.items-three {
+      gap: 100px;
+      @include md {
+        gap: 60px;
+      }
+    }
+    &.item-last{
+      gap: 53px;
+      @media (max-width:1120px) {
+        gap: 80px;
+      }
+    }
+
+
+    .decor{
+     
+        position: absolute;
+        right: -65px;
+        bottom: 57px;
+        width: 130px;
+        height: 150px;
+        background: rgba(113, 179, 198, 0.85);
+        border-radius: 3px;
+        font-family: "Dosis";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 140%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.045em;
+        color: #ffffff;
+        @media (max-width: 1050px) {
+          width: 100px;
+          height: 120px;
+          right: -50px;
+        }
+        @include lg {
+          font-size: 20px;
+          line-height: 120%;
+          bottom: 20px;
+          right: -35px;
+          width: 70px;
+          height: 90px;
+        }
+        @include md {
+          bottom: unset;
+          top: -35px;
+          right: 50%;
+          transform: translate(50%, 0%);
+          width: 70px;
+          height: 80px;
+          font-size: 16px;
+          line-height: 110%;
+        }
+      }
+    .decor-reverse {
+      
+        position: absolute;
+        left: -65px;
+        bottom: 57px;
+        width: 130px;
+        height: 150px;
+        background: rgba(113, 179, 198, 0.85);
+        border-radius: 3px;
+        font-family: "Dosis";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 140%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.045em;
+        color: #ffffff;
+        @media (max-width: 1050px) {
+          width: 100px;
+          height: 120px;
+          left: -50px;
+        }
+        @include lg {
+          font-size: 20px;
+          line-height: 120%;
+          bottom: 20px;
+          left: -35px;
+          width: 70px;
+          height: 90px;
+        }
+        @include md {
+          bottom: unset;
+          top: -35px;
+          left: 50%;
+          transform: translate(-50%, 0%);
+          width: 70px;
+          height: 80px;
+          font-size: 16px;
+          line-height: 110%;
+        }
+      }
+
+   
+  }
+
+  &__item {
+    position: relative;
+    flex: 0 1 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+      @include lg {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+    @include md {
+      flex: 1 1 100%;
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: 25px;
+      @include lg {
+        margin-bottom: 15px;
+      }
+    }
+    @include lg {
+      font-size: 40px;
+      line-height: 110%;
+    }
+  }
+
+  &__subtitle {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+    @include lg {
+      line-height: 140%;
+    }
+    &.subtitle-last{
+      p{
+        max-width: 389px;
+        @include md{
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+  }
+}

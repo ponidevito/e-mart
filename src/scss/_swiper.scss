@@ -1,0 +1,27 @@
+.swiper {
+}
+.swiper-wrapper {
+  height: 100vh;
+}
+.swiper-slide {
+  background-image: url("../img/header-wrapper/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+}
+.swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  .swiper-pagination-bullet {
+    border: 1px solid #677f8b;
+    width: 14px;
+    height: 14px;
+    background-color: transparent;
+    &.swiper-pagination-bullet-active {
+      background: #677f8b;
+    }
+  }
+}

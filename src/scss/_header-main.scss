@@ -1,0 +1,113 @@
+.section {
+  &__header-main {
+    position: absolute;
+    left: 0;
+    top: 185px;
+    z-index: 10;
+    width: 100%;
+    @media (max-width: 1340px) {
+      padding-left: 60px;
+      left: 30px;
+    }
+    @media (max-width: 750px) {
+      padding-left: 0px;
+      left: 0;
+    }
+    @include sm {
+      top: 150px;
+    }
+  }
+}
+.header-main {
+  &__container {
+    max-width: 1120px;
+  }
+
+  &__items {
+    display: flex;
+    margin-left: 66px;
+    @media (max-width: 750px) {
+      margin-left: 0px;
+    }
+  }
+
+  &__content {
+    flex: 0 1 60%;
+    @media (max-width: 1340px) {
+      flex: 0 1 50%;
+    }
+    @include sm {
+      flex: 1 1 100%;
+    }
+  }
+
+  &__name {
+    font-family: "Dancing Script";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 152.5%;
+    letter-spacing: 0.045em;
+    color: #4e6e77;
+    &:not(:last-child) {
+      margin-bottom: 9px;
+    }
+  }
+
+  &__title {
+    max-width: 400px;
+    font-family: "Dosis";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 133.5%;
+    letter-spacing: 0.045em;
+    color: $primary;
+    @include lg {
+      font-size: 35px;
+    }
+    @include sm {
+      font-size: 30px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 18px;
+    }
+  }
+
+  &__button {
+    display: flex;
+  }
+
+  &__about {
+    flex: 0 1 50%;
+    max-width: 130px;
+    position: relative;
+    &::after {
+      content: "";
+      background-position: center;
+      position: absolute;
+      top: 8px;
+      background-size: cover;
+      height: 123px;
+      width: 52px;
+      background-repeat: no-repeat;
+      background-image: url(../img/header-main/arrow.svg);
+      right: -60px;
+    }
+    p {
+      font-family: "Dosis";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.045em;
+
+      color: #4e6e77;
+    }
+    @include sm {
+      display: none;
+    }
+  }
+}

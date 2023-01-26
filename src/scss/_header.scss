@@ -1,0 +1,327 @@
+.header__wrapper {
+  position: relative;
+}
+
+.header {
+  &__leftNav {
+    background-color: #002a32;
+    position: absolute;
+    padding-top: 132px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 30;
+    @media (max-width: 750px) {
+      display: none;
+      &._active {
+        position: fixed;
+        display: flex;
+        padding-top: 150px;
+        background-color: transparent;
+        z-index: 31;
+      }
+    }
+  }
+}
+.leftNav {
+  &__link {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 153%;
+    letter-spacing: 0.045em;
+    color: #8999a1;
+    padding: 20px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s ease;
+    gap: 2px;
+
+    &:hover {
+      svg {
+        path {
+          fill: #b6ddff;
+        }
+      }
+      background: #3c6c7f;
+      color: #b6dcff;
+    }
+    @include sm {
+      padding: 15px 10px;
+      line-height: 120%;
+    }
+  }
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  min-height: 82px;
+  @media (max-width: 750px) {
+    min-height: 62px;
+  }
+  &._active {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    animation: slice 1s 1 alternate;
+    background-color: #a0c7eae3;
+    @media (max-width: 750px) {
+      min-height: 62px;
+    }
+  }
+  &__container {
+    max-width: 1120px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  &__logo {
+    padding: 0px 0px 0px 35px;
+    @media (max-width: 750px) {
+      max-width: 80px;
+      padding: 0px 0 0 15px;
+      z-index: 3;
+    }
+  }
+  &__items {
+    padding: 28px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    @media (max-width: 1340px) {
+      padding: 20px 30px;
+    }
+    @media (max-width: 750px) {
+      padding: 0px;
+    }
+  }
+
+  .menu {
+    width: 100%;
+    &__icon {
+      display: none;
+      @media (max-width: 750px) {
+        z-index: 5;
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 18px;
+        cursor: pointer;
+
+        & .span,
+        &::before,
+        &::after {
+          left: 0;
+          position: absolute;
+          height: 10%;
+          width: 100%;
+          transition: all 0.3s ease 0s;
+          background-color: $primary;
+        }
+        &._changeColor {
+          & .span,
+          &::before,
+          &::after {
+            background-color: white;
+          }
+        }
+        &._scrollColor {
+          & .span,
+          &::before,
+          &::after {
+            background-color: white;
+          }
+        }
+
+        &::before,
+        &::after {
+          content: "";
+        }
+        &::before {
+          top: 0;
+        }
+        &::after {
+          bottom: 0;
+        }
+        & span {
+          top: 50%;
+          transform: scale(1) translate(0px, -50%);
+        }
+        &._active span {
+          transform: scale(0) translate(0px, -50%);
+        }
+        &._active::before {
+          top: 50%;
+          transform: rotate(-45deg) translate(0px, -70%);
+        }
+        &._active::after {
+          bottom: 50%;
+          transform: rotate(40deg) translate(0px, 30%);
+        }
+      }
+    }
+
+    &__body {
+      display: flex;
+      justify-content: space-between;
+      z-index: 2;
+
+      @media (max-width: 750px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #002a32;
+        padding: 170px 30px 30px 30px;
+        transform: translate(-100%, 0px);
+        overflow: auto;
+        flex-direction: column;
+        justify-content: unset;
+        &._active:before {
+          content: "";
+          position: fixed;
+          width: 100%;
+          top: 0;
+          left: 0;
+        }
+        &._active {
+          align-items: flex-end;
+          transform: translate(0px, 0px);
+          transition: all 0.2s;
+          .menu__logo {
+            display: none;
+          }
+        }
+      }
+      @include sm {
+        padding: 170px 30px 30px 100px;
+      }
+      &.menu__body-second {
+        justify-content: flex-end;
+      }
+    }
+    &__list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+
+      @include lg {
+        gap: 20px;
+      }
+      @media (max-width: 750px) {
+        flex-direction: column;
+        align-items: center;
+        &:not(:last-child) {
+          margin-bottom: 30px;
+          gap: 40px;
+        }
+      }
+      @media (max-width: 750px) {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+        gap: 40px;
+      }
+    }
+    &__item {
+      display: flex;
+      align-items: center;
+      @media (max-width: 750px) {
+        min-width: 130px;
+        justify-content: flex-end;
+      }
+      &:hover {
+        path {
+          fill: #335e74;
+        }
+        .menu__link-text::after {
+          width: 100%;
+        }
+      }
+    }
+
+    &__link {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 162%;
+      letter-spacing: -0.04em;
+      color: $secondary;
+
+      @media (max-width: 750px) {
+        flex-direction: row-reverse;
+      }
+      &.menu__link-right {
+        @media (max-width: 750px) {
+          flex-direction: row;
+        }
+      }
+      span {
+        position: absolute;
+        top: 9px;
+        right: -17px;
+        font-weight: 600;
+        font-size: 8px;
+        line-height: 11px;
+        letter-spacing: -0.02em;
+        color: #dd6060;
+      }
+
+      svg {
+        path {
+          transition: 0.3s ease;
+        }
+      }
+
+      @media (max-width: 750px) {
+        font-size: 25px;
+        color: #8999a1;
+      }
+
+      &._active {
+        color: #f00;
+      }
+      .menu__link-text {
+        position: relative;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 162%;
+        letter-spacing: -0.02em;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 0px;
+          left: 0;
+          height: 1px;
+          background-color: #335e74;
+          bottom: 0px;
+          transition: 0.3s ease;
+        }
+      }
+    }
+  }
+
+  .effect {
+    display: none;
+    @media (max-width: 750px) {
+      padding: 16px 10px;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
